@@ -1,4 +1,4 @@
-# $Id: Crontab.pm,v 0.92 2001-03-21 01:09:00 ams Exp $
+# $Id: Crontab.pm,v 1.00 2001-04-30 23:44:44 ams Exp $
 # Copyright 2001 Abhijit Menon-Sen <ams@wiw.org>
 
 package Set::Crontab;
@@ -7,7 +7,7 @@ use strict;
 use Carp;
 use vars qw( $VERSION );
 
-($VERSION) = q$Revision: 0.92 $ =~ /(\d+\.\d+)/;
+($VERSION) = q$Revision: 1.00 $ =~ /([\d.]+)/;
 
 sub _expand
 {
@@ -47,11 +47,12 @@ sub _expand
     return \@list;
 }
 
-my $initialise = sub {
+sub _initialise
+{
     my ($self, $spec, $range) = @_;
     return undef unless ref($self);
 
-    croak "Usage: ".ref($self)."->new(\$spec, [\@range])"
+    croak "Usage: ".__PACKAGE__."->new(\$spec, [\@range])"
         unless defined $spec && ref($range) eq "ARRAY";
 
     $self->{LIST} = $self->_expand($spec, $range);
@@ -64,7 +65,7 @@ sub new
 {
     my $class = shift;
     my $self  = bless {}, ref($class) || $class;
-    return $self->$initialise(@_);
+    return $self->_initialise(@_);
 }
 
 sub contains
@@ -129,7 +130,7 @@ means "4-6,8-10").
 
 =item new($spec, [@range])
 
-Creates a new Set::Crontab and returns a reference to it.
+Creates a new Set::Crontab object and returns a reference to it.
 
 =item contains($num)
 
@@ -152,7 +153,7 @@ L<crontab(5)>
 
 Abhijit Menon-Sen <ams@wiw.org>
 
-Copyright 2001 Abhijit Menon-Sen. All rights reserved.
+Copyright 2001 Abhijit Menon-Sen <ams@wiw.org>
 
-This is free software; you may redistribute and/or modify it under the
-same terms as Perl itself.
+This software is distributed under the terms of the Artistic License
+<URL:http://ams.wiw.org/code/artistic.txt>.

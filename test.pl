@@ -1,4 +1,7 @@
+use strict;
+
 use Test;
+use vars qw($loaded);
 
 BEGIN { plan tests => 11 }
 END   { print "not ok 1\n" unless $loaded }
