@@ -1,4 +1,4 @@
-# $Id: Crontab.pm,v 0.90 2001-02-23 23:50:42 ams Exp $
+# $Id: Crontab.pm,v 0.91 2001-03-21 01:06:24 ams Exp $
 # Copyright 2001 Abhijit Menon-Sen <ams@wiw.org>
 
 package Set::Crontab;
@@ -7,7 +7,7 @@ use strict;
 use Carp;
 use vars qw( $VERSION );
 
-($VERSION) = q$Revision: 0.90 $ =~ /(\d+\.\d+)/;
+($VERSION) = q$Revision: 0.91 $ =~ /(\d+\.\d+)/;
 
 sub _expand
 {
@@ -47,15 +47,7 @@ sub _expand
     return \@list;
 }
 
-sub new
-{
-    my $class = shift;
-    my $self  = bless {}, ref($class) || $class;
-    return $self->_initialise(@_);
-}
-
-sub _initialise
-{
+my $initialise = sub {
     my ($self, $spec, $range) = @_;
     return undef unless ref($self);
 
@@ -66,6 +58,13 @@ sub _initialise
     $self->{HASH} = {map {$_ => 1} @{$self->{LIST}}};
 
     return $self;
+};
+
+sub new
+{
+    my $class = shift;
+    my $self  = bless {}, ref($class) || $class;
+    return $self->$initialise(@_);
 }
 
 sub contains
@@ -153,7 +152,7 @@ L<crontab(5)>
 
 Abhijit Menon-Sen <ams@wiw.org>
 
-Copyright 2001 Abhijit Menon-Sen. All Rights Reserved.
+Copyright 2001 Abhijit Menon-Sen. All rights reserved.
 
 This is free software; you may redistribute and/or modify it under the
 same terms as Perl itself.

@@ -1,8 +1,10 @@
 use Test;
 
-BEGIN { plan tests => 10 }
+BEGIN { plan tests => 11 }
+END   { print "not ok 1\n" unless $loaded }
 
 use Set::Crontab;
+ok($loaded = 1);
 
 my $r = [0..10];
 
