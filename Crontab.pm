@@ -1,4 +1,4 @@
-# $Id: Crontab.pm,v 0.91 2001-03-21 01:06:24 ams Exp $
+# $Id: Crontab.pm,v 0.92 2001-03-21 01:09:00 ams Exp $
 # Copyright 2001 Abhijit Menon-Sen <ams@wiw.org>
 
 package Set::Crontab;
@@ -7,7 +7,7 @@ use strict;
 use Carp;
 use vars qw( $VERSION );
 
-($VERSION) = q$Revision: 0.91 $ =~ /(\d+\.\d+)/;
+($VERSION) = q$Revision: 0.92 $ =~ /(\d+\.\d+)/;
 
 sub _expand
 {
