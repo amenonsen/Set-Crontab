@@ -1,5 +1,4 @@
-# $Id: Crontab.pm,v 1.00 2001-04-30 23:44:44 ams Exp $
-# Copyright 2001 Abhijit Menon-Sen <ams@wiw.org>
+# Copyright 2001 Abhijit Menon-Sen <ams@toroid.org>
 
 package Set::Crontab;
 
@@ -7,7 +6,7 @@ use strict;
 use Carp;
 use vars qw( $VERSION );
 
-($VERSION) = q$Revision: 1.00 $ =~ /([\d.]+)/;
+($VERSION) = q$Revision: 1.01 $ =~ /([\d.]+)/;
 
 sub _expand
 {
@@ -151,9 +150,9 @@ L<crontab(5)>
 
 =head1 AUTHOR
 
-Abhijit Menon-Sen <ams@wiw.org>
+Abhijit Menon-Sen <ams@toroid.org>
 
-Copyright 2001 Abhijit Menon-Sen <ams@wiw.org>
+Copyright 2001 Abhijit Menon-Sen <ams@toroid.org>
 
-This software is distributed under the terms of the Artistic License
-<URL:http://ams.wiw.org/code/artistic.txt>.
+This module is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
