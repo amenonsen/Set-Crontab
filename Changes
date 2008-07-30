@@ -1,3 +1,8 @@
+1.02    2008-07-30
+
+    * The 1.01 distribution tarball was broken; this is what it should
+      have been.
+
 1.01    2008-07-30
 
     * Relicensed on request from the old Artistic License to "the same

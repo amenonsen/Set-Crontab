@@ -6,7 +6,7 @@ use strict;
 use Carp;
 use vars qw( $VERSION );
 
-($VERSION) = q$Revision: 1.01 $ =~ /([\d.]+)/;
+$VERSION = '1.02';
 
 sub _expand
 {
