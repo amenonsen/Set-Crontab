@@ -6,7 +6,7 @@ use strict;
 use Carp;
 use vars qw( $VERSION );
 
-$VERSION = '1.02';
+$VERSION = '1.03';
 
 sub _expand
 {
@@ -43,6 +43,7 @@ sub _expand
         @list = grep { defined $_ if eval $not } (@list ? @list : @$range);
     }
 
+    @list = sort { $a <=> $b } @list;
     return \@list;
 }
 
@@ -137,7 +138,8 @@ Returns true if C<$num> exists in the set.
 
 =item list()
 
-Returns the expanded list corresponding to the set.
+Returns the expanded list corresponding to the set. Elements are in
+ascending order.
 
 =back
 

@@ -31,3 +31,6 @@ ok(!$s->contains(8) && $s->contains(3));
 
 $s = Set::Crontab->new("1,*/2,!4", $r);
 ok(!$s->contains(4) && $s->contains(2));
+
+$s = Set::Crontab->new("45,15,30", [0..50]);
+ok(join("", $s->list()) eq "153045");

@@ -1,3 +1,7 @@
+1.03    2010-05-08
+
+    * Return list elements in sorted order.
+
 1.02    2008-07-30
 
     * The 1.01 distribution tarball was broken; this is what it should
